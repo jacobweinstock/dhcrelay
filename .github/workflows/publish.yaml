@@ -12,7 +12,8 @@ jobs:
       - name: Prepare
         id: prep
         run: |
-          DOCKER_IMAGE=ghcr.io/jacobweinstock/dhcrelay
+          # DOCKER_IMAGE=ghcr.io/jacobweinstock/dhcrelay
+          DOCKER_IMAGE=ghcr.io/${GITHUB_REPOSITORY}
           VERSION=latest
           if [[ $GITHUB_REF == refs/tags/* ]]; then
             VERSION=${GITHUB_REF#refs/tags/}
@@ -43,3 +44,4 @@ jobs:
           context: .
           push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.prep.outputs.tags }}
+          platforms: linux/amd64,linux/arm64
