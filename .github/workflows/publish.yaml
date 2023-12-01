@@ -12,8 +12,8 @@ jobs:
       - name: Prepare
         id: prep
         run: |
-          # DOCKER_IMAGE=ghcr.io/jacobweinstock/dhcrelay
-          DOCKER_IMAGE=ghcr.io/${GITHUB_REPOSITORY,,}
+          DOCKER_IMAGE=ghcr.io/jacobweinstock/dhcprelay
+          # DOCKER_IMAGE=ghcr.io/${GITHUB_REPOSITORY,,}
           VERSION=latest
           if [[ $GITHUB_REF == refs/tags/* ]]; then
             VERSION=${GITHUB_REF#refs/tags/}
